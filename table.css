@@ -1,24 +1,21 @@
+.container {
+    width: 100%;
+    height: 60vh;
+    overflow: scroll;
+}
+
 .seat-grid {
     background-color: white;
     border: 1px solid black;
 
     /* center the grid */
+    table-layout: fixed;
     width: 90%;
     height: 60vh;
     margin: auto;
 
     margin-top: 1em;
 
-    /* allow items to overflow the container in case of large row sizes
-        and make table scrollable so that every table cell can be reached */
-    overflow-x: scroll;
-
-    display: flex;
-    flex-direction: column;
-
-    gap: 1em;
-
-    table-layout: fixed;
 
     border-collapse: separate;
     border-spacing: 15px 15px;
@@ -28,4 +25,7 @@
     border: 1px solid black;
 
     padding-right: 1em;
+    width: 5em;
+
+    text-align: center;
 }

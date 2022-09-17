@@ -15,8 +15,6 @@ function createTable(numRows, numCols) {
             const cell = document.createElement('td');
             // provides hover effect for pixel
             cell.classList.add('cell');
-            cell.style.width = `10rem`;
-            cell.style.height = `20px`;
             cell.textContent = `${letters[i]}-${j + 1}`
             row.appendChild(cell);
         }
