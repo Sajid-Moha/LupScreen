@@ -24,7 +24,6 @@
 .cell {
     border: 1px solid black;
 
-    padding-right: 1em;
     width: 5em;
 
     text-align: center;
@@ -35,4 +34,8 @@
 .cell:hover {
     transform: scale(1.1);
     cursor: pointer;
+}
+
+.first-col {
+    width: 2em;
 }

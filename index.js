@@ -9,7 +9,14 @@ function createTable(numRows, numCols) {
     let topRow = document.createElement('tr');
     topRow.classList.add('row');
 
-    for (let i = 0; i < numCols; i++) {
+    /* We must add an empty cell at the beginning to account for 
+        row labels */
+    let emptyCell = document.createElement('th');
+    emptyCell.classList.add('cell');
+    emptyCell.classList.add('first-col');
+    topRow.appendChild(emptyCell);
+
+    for (let i = 1; i <= numCols; i++) {
         let columnLabel = document.createElement('th');
         columnLabel.textContent = `${i}`;
         columnLabel.classList.add('cell');
@@ -26,6 +33,7 @@ function createTable(numRows, numCols) {
         let rowLabel = document.createElement('th');
         rowLabel.textContent = `${letters[i]}`;
         rowLabel.classList.add('cell');
+        rowLabel.classList.add('first-col');
         row.appendChild(rowLabel);
 
         for (let j = 0; j < numCols; j++) {
