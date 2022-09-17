@@ -16,6 +16,7 @@ function createTable(numRows, numCols) {
             // provides hover effect for pixel
             cell.classList.add('cell');
             cell.textContent = `${letters[i]}-${j + 1}`
+            cell.setAttribute("tabindex", '0')
             row.appendChild(cell);
         }
         table.appendChild(row);
