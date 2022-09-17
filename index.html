@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/table.css">
+    <link rel="stylesheet" href="./styles/controller.css">
 
     <title>LupSeat</title>
 </head>
@@ -24,9 +25,9 @@
     <main>
         <form class="size-adjusters" onsubmit="return false">
             <label for="rows">Rows: </label>
-            <input name="rows" type="number" min="0" max="52">
+            <input id="rows" name="rows" type="number" min="0" max="52" required>
             <label for="rows">Columns: </label>
-            <input name="cols" type="number" min="0" max="200">
+            <input id="cols" name="cols" type="number" min="0" max="200" required>
             <button id="table-adjust" type="submit">Resize</button>
         </form>
         <div class="container">
@@ -38,7 +39,7 @@
         <div class="controller">
             <form id="jumper" onsubmit="return false">
                 <input type="text" pattern="[A-Za-z]{1}" minlength="1" maxlength="1">
-                <input type="number" min="0" max="200">
+                <input type="number" min="0" max="200" maxlength="3">
                 <button type="submit">Search</button>
             </form>
             <div class="zoom-controls">
@@ -54,6 +55,7 @@
             </div>
         </div>
     </main>
+    <script src="./modules/seats.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>
