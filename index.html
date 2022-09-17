@@ -34,6 +34,25 @@
 
             </table>
         </div>
+        <br>
+        <div class="controller">
+            <form id="jumper" onsubmit="return false">
+                <input type="text" pattern="[A-Za-z]{1}" minlength="1" maxlength="1">
+                <input type="number" min="0" max="200">
+                <button type="submit">Search</button>
+            </form>
+            <div class="zoom-controls">
+                <button>
+                    -
+                </button>
+                <button>
+                    +
+                </button>
+                <span>
+                    5x
+                </span>
+            </div>
+        </div>
     </main>
     <script src="./index.js"></script>
 </body>
