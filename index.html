@@ -19,10 +19,15 @@
             <img class="logo" src="./LupSeat Logo.svg" alt="LupSeat Logo : Desk with empty space to each side.">
             <div class="brand-name">LupSeat</div>
         </div>
-        <main>
-            
-        </main>
     </header>
-    
+    <main>
+        <form class="size-adjusters" onsubmit="return false">
+            <label for="rows">Rows: </label>
+            <input name="rows" type="number" min="0" max="52">
+            <label for="rows">Columns: </label>
+            <input name="cols" type="number" min="0" max="200">
+            <button id="table-adjust" type="submit">Resize</button>
+        </form>
+    </main>
 </body>
 </html>
