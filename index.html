@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="./styles/table.css">
     <link rel="stylesheet" href="./styles/controller.css">
 
+    <!-- Fonts / Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ce2465d2cd.js" crossorigin="anonymous"></script>
+
     <title>LupSeat</title>
 </head>
 <body>
@@ -38,24 +44,26 @@
         <br>
         <div class="controller">
             <form id="jumper" onsubmit="return false">
-                <input type="text" pattern="[A-Za-z]{1}" minlength="1" maxlength="1">
-                <input type="number" min="0" max="200" maxlength="3">
-                <button type="submit">Search</button>
+                <input id="row-letter" type="text" pattern="[A-Za-z]{1}" minlength="1" maxlength="1">
+                <input id="col-num" type="number" min="0" max="200" maxlength="3">
+                <button id="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
             <div class="zoom-controls">
-                <button>
-                    -
+                <button id="minimize">
+                    <i class="fa-solid fa-minus"></i>
                 </button>
-                <button>
-                    +
+                <button id="maximize">
+                    <i class="fa-solid fa-plus"></i>
                 </button>
-                <span>
-                    5x
+                <span id="zoom-spec">
+                    1x
                 </span>
             </div>
         </div>
     </main>
     <script src="./modules/seats.js"></script>
+    <script src="./modules/magnifier.js"></script>
+    <script src="./modules/finder.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>

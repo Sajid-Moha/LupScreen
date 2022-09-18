@@ -40,6 +40,7 @@ function createTable(numRows, numCols) {
             const cell = document.createElement('td');
             // provides hover effect for pixel
             cell.classList.add('cell');
+            cell.id = `${letters[i]}-${j + 1}`
             cell.textContent = `${letters[i]}-${j + 1}`
             cell.setAttribute("tabindex", '0')
             row.appendChild(cell);

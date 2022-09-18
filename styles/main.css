@@ -9,15 +9,19 @@ html {
 
 main {
     width: 100%;
+    font-family: 'Lato', sans-serif;
 }
 
 button {
-    padding: .25em 2em;
+    padding: .25rem 2rem;
 
     background-color: rgb(150, 150, 150);
     border: none;
-    box-shadow: 0em .2em rgb(127, 127, 127);
+    box-shadow: 0rem .2rem rgb(127, 127, 127);
     transition: .15s;
+
+    color: white;
+    text-shadow: 1px 1px black;
 }
 
 button:hover {
@@ -35,5 +39,5 @@ button:active {
 }
 
 #table-adjust {
-    margin-left: 3em;
+    margin-left: 3rem;
 }
