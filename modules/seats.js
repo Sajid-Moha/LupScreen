@@ -20,6 +20,7 @@ function createTable(numRows, numCols) {
         let columnLabel = document.createElement('th');
         columnLabel.textContent = `${i}`;
         columnLabel.classList.add('cell');
+        columnLabel.classList.add('first-row');
         topRow.appendChild(columnLabel);
     }
 

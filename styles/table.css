@@ -46,7 +46,15 @@
     width: 2rem;
 }
 
-
 .seat-grid {
     zoom: 1;
+}
+
+.first-row, .first-col {
+    background-color: lightgrey;
+}
+
+.first-row:hover, .first-col:hover {
+    cursor: default;
+    transform: none;
 }
