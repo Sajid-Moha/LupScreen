@@ -26,6 +26,7 @@ function createForm(name, email, level) {
     let body = document.createElement('div'); body.classList.add('modal-body');
     let categories = ['name', 'email'];
     let line_break = document.createElement('br');
+    body.appendChild(label);
     for (let i = 0; i < 2; i++) {
         let label = document.createElement('label');
         label.for = categories[i];
@@ -35,11 +36,8 @@ function createForm(name, email, level) {
         input.type = 'text';
         input.name = categories[i];
 
-        body.appendChild(label);
-        body.appendChild(document.createElement('br'));
+        body.appendChild(line_break);
         body.appendChild(input);
-        body.appendChild(document.createElement('br'));
-        body.appendChild(document.createElement('br'));
     }
 
     return body;
