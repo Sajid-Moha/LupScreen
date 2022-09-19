@@ -65,3 +65,7 @@
     /* To override the hover state of cell class : */
     border: 1px solid black;
 }
+
+.first-row {
+    height: 1rem;
+}
