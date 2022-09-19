@@ -23,6 +23,10 @@
     border-spacing: 15px 15px;
 }
 
+.row {
+    height: 5rem;
+}
+
 .cell {
     border: 1px solid black;
 
@@ -57,4 +61,7 @@
 .first-row:hover, .first-col:hover {
     cursor: default;
     transform: none;
+
+    /* To override the hover state of cell class : */
+    border: 1px solid black;
 }
