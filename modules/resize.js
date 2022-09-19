@@ -24,6 +24,9 @@ submitSize.addEventListener('click', () => {
         table.removeChild(table.firstChild);
     }
 
+    /* cur vals from students.js */
+    curRows = numRows.value;
+    curCols = numCols.value;
     createTable(numRows.value, numCols.value);
 });
 
