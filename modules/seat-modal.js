@@ -36,10 +36,10 @@ function createForm(name, email, level) {
         input.name = categories[i];
 
         body.appendChild(label);
-        body.appendChild(line_break);
+        body.appendChild(document.createElement('br'));
         body.appendChild(input);
-        body.appendChild(line_break);
-        body.appendChild(line_break);
+        body.appendChild(document.createElement('br'));
+        body.appendChild(document.createElement('br'));
     }
 
     return body;
