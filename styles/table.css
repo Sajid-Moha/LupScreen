@@ -3,7 +3,7 @@
     border-bottom: 1px solid black;
     background-color: white;
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     overflow: scroll;
 
     margin-top: 1rem;
@@ -15,7 +15,7 @@
     /* center the grid */
     table-layout: fixed;
     width: 90%;
-    height: 60vh;
+    height: 70vh;
     margin: auto;
 
 
@@ -35,6 +35,8 @@
     text-align: center;
 
     transition: 1.05ms;
+
+    opacity: .5;
 }
 
 .cell:hover {
@@ -56,6 +58,7 @@
 
 .first-row, .first-col {
     background-color: lightgrey;
+    opacity: 1;
 }
 
 .first-row:hover, .first-col:hover {
@@ -64,4 +67,14 @@
 
     /* To override the hover state of cell class : */
     border: 1px solid black;
+}
+
+.first-row {
+    height: 1rem;
+}
+
+
+.taken {
+    background-color: lightcoral;
+    opacity: 1;
 }

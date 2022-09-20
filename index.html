@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/table.css">
     <link rel="stylesheet" href="./styles/controller.css">
+    <link rel="stylesheet" href="./styles/modal.css">
 
     <!-- Fonts / Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,10 +31,12 @@
     </header>
     <main>
         <form class="size-adjusters" onsubmit="return false">
-            <label for="rows">Rows: </label>
-            <input id="rows" name="rows" type="number" min="0" max="52" required>
-            <label for="rows">Columns: </label>
-            <input id="cols" name="cols" type="number" min="0" max="200" required>
+            <div class="size-inputs">
+                <label for="rows">Rows: </label>
+                <input id="rows" name="rows" type="number" min="1" max="52" required>
+                <label for="rows">Columns: </label>
+                <input id="cols" name="cols" type="number" min="1" max="200" required>
+            </div>
             <button id="table-adjust" type="submit">Resize</button>
         </form>
         <div class="container">
@@ -44,26 +47,33 @@
         <br>
         <div class="controller">
             <form id="jumper" onsubmit="return false">
-                <input id="row-letter" type="text" pattern="[A-Za-z]{1}" minlength="1" maxlength="1">
-                <input id="col-num" type="number" min="0" max="200" maxlength="3">
+                <div class="jumper-inputs">
+                    <input id="row-letter" type="text" pattern="[A-Za-z]{1}" minlength="1" maxlength="1">
+                    <input id="col-num" type="number" min="1" max="200" maxlength="3">
+                </div>
                 <button id="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
-            <div class="zoom-controls">
-                <button id="minimize">
-                    <i class="fa-solid fa-minus"></i>
-                </button>
-                <button id="maximize">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
+            <div id="zoom-controls">
+                <div id="zoom-inputs">
+                    <button id="minimize">
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                    <button id="maximize">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
                 <span id="zoom-spec">
                     1x
                 </span>
             </div>
         </div>
     </main>
-    <script src="./modules/seats.js"></script>
+    <script id="first-child" src="./index.js"></script>
+    <script src="./modules/Seat.js"></script>
+    <script src="./modules/table.js"></script>
     <script src="./modules/magnifier.js"></script>
     <script src="./modules/finder.js"></script>
     <script src="./modules/resize.js"></script>
+    <script src="./modules/seat-modal.js"></script>
 </body>
 </html>

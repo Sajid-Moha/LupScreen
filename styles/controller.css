@@ -1,18 +1,58 @@
+/* CONTROL SECTION : HOLDS BOTH JUMPER & ZOOM MODULES */
 .controller {
     display: flex;
     flex-direction: row;
 
     justify-content: space-around;
     align-items: center;
+
+    margin-bottom: .5rem;
 }
 
-.controller > form > input {
-    width: 3rem;
+
+/* JUMPER STYLING */
+/* want button to be inline with input fields until it gets too overcrowded */
+.jumper-inputs {
+    display: inline-block;
+    width: auto;
+}
+
+.jumper-inputs > input {
+    width: 3em;
+    /* don't want input fields touching each other or submit button */
+    margin-right: .5rem;
+}
+
+@media (max-width: 500px) {
+    #jumper > * {
+        display: block;
+        margin: auto;
+    }
+
+    /* button no longer to right side of this input so no need for margin */
+    #col-num {
+        margin-right: 0rem;
+    }
+
+    /* seperation between button and the input fields */
+    #search-btn {
+        margin-top: .5rem;
+    }
+}
+
+
+/* ZOOM CONTROLLER STYLING */
+#zoom-inputs {
+    display: inline-block;
 }
 
 #minimize, #maximize {
     height: 1.75rem;
     margin-right: 1rem;
+}
+
+#minimize:disabled, #maximize:disabled {
+    cursor: not-allowed;
 }
 
 #zoom-spec {
@@ -21,6 +61,17 @@
     background-color: white;
 }
 
-#minimize:disabled, #maximize:disabled {
-    cursor: not-allowed;
+@media (max-width: 500px) {
+    #zoom-controls > * {
+        display: block;
+        margin: auto;
+    }
+
+    #maximize {
+        margin-right: 0rem;
+    }
+
+    #zoom-spec {
+        margin-top: .5em;
+    }
 }
