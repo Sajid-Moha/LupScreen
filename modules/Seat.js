@@ -42,3 +42,28 @@ function ConvertLetterToRow(letter, num_rows) {
     let row = locator_value - letter.charCodeAt(0);
     return row;
 }
+
+
+function UpdateSeat(row, col) {
+    let name_input = document.querySelector('#name');
+    let email_input = document.querySelector('#email');
+    let cur_cell = document.querySelector(`#${LETTERS[row]}-${col + 1}`);
+
+    SEAT_GRID[row][col].email = email_input.value;
+    SEAT_GRID[row][col].name = name_input.value;
+
+    if (name_input.value === '' && email_input.value === '') {
+        cur_cell.classList.remove('taken');
+        cur_cell.textContent = `${LETTERS[row]}-${col + 1}`;
+    } else if (name_input.value === '') {
+        cur_cell.classList.add('taken');
+        console.log(SEAT_GRID[row][col].email)
+        // if email is too long, we have to trim it
+        if (SEAT_GRID[row][col].email.length > 5) {
+            cur_cell.textContent = SEAT_GRID[row][col].email.substring(0, 5) + '\u2026';
+        } else { cur_cell.textContent = SEAT_GRID[row][col].email; }
+    } else {
+        cur_cell.classList.add('taken');
+        cur_cell.textContent = SEAT_GRID[row][col].name;
+    }
+}

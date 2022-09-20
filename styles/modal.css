@@ -96,3 +96,8 @@
 .left-space {
     margin-left: 1em;
 }
+
+.arrow-nav:hover {
+  cursor: pointer;
+  text-shadow: 0px 0px 5px white;
+}

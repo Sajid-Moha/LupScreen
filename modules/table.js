@@ -1,44 +1,16 @@
 /*
-Table Format (* = seat):
-    [ ][1][2][3][4]      <-- col headers
-    [c][*][*][*][*]
-    [b][*][*][*][*]
-    [a][*][*][*][*]
-    ^
-    row headers
-*/
-
-/* use 2D array to keep track of students on seating chart.
-*   Anytime table is regenerated this array is created as an empty 2d array
-*       of the same size.
-*/
-let seat_grid = [];
-
-// createTable does the below steps while creating the UI for the grid
-//      because it saves computation
-/*
-for (let i = 0; i < curRows; i++) {
-    let seat_row = [];
-    for (let j = 0; j < curCols; j++) {
-        seat_row.push(new Seat('', '', ''));
-    }
-
-    seat_grid.push(seat_row);
-} 
-
-*/
-
-
-/*
 *   Event listener that calls this function is viewable in 'resize.js' module.       
 */
+
+/* table variable declared in index.js */
+
 function createTable(numRows, numCols) {
     /* intialize backend empty seat chart */
-    seat_grid = []
+    SEAT_GRID = []
 
     /* top row = column headers */
     let topRow = AddColumnLabels(numCols);
-    table.appendChild(topRow);
+    TABLE.appendChild(topRow);
 
     /* add the rest of the seats to the table */
     /* front of seating chart at bottom so start from last letter to first */
@@ -50,26 +22,46 @@ function createTable(numRows, numCols) {
         row.classList.add('row');
 
         /* letter at beginning of each row */
-        let rowLabel = AddRowLabel(letters[i]);
+        let rowLabel = AddRowLabel(LETTERS[i]);
         row.appendChild(rowLabel);
 
         for (let j = 0; j < numCols; j++) {
             /* BACKEND GRID WORK: add an empty seat for each column */
             seat_row.push(new Seat('', '', ''));
 
-            let cell = CreateCell(`${letters[i]}-${j + 1}`);
+            let cell = CreateCell(`${LETTERS[i]}-${j + 1}`);
             cell.addEventListener('click', (e) => {
-                let cell_row = ConvertLetterToRow(letters[i], curRows);
-                seat_grid[cell_row][j].name = 'hello';
-                console.log(seat_grid[cell_row][j])
+                let mod = createModal(`${LETTERS[i]}-${j + 1}`, i, j)
+                let htmlbody = document.querySelector('body');
+                htmlbody.insertBefore(mod, document.querySelector('#first-child'));
+                let close_modal = document.querySelector('.close');
+                close_modal.addEventListener('click', () => {
+                    htmlbody.removeChild(mod);
+                });
+
+                window.addEventListener('click', (e) => {
+                    if (e.target == mod) {
+                        htmlbody.removeChild(mod);
+                    }
+                });
+
+                let name_input = document.querySelector('#name');
+                name_input.addEventListener('input', () => {
+                    UpdateSeat(i, j);
+                });
+
+                let email_input = document.querySelector('#email');
+                email_input.addEventListener('input', () => {
+                    UpdateSeat(i, j);
+                })
             })
             row.appendChild(cell);
         }
 
         /* BACKEND GRID WORK: add the row of size numCols to the grid.
             this will happen numRows times for a numRows*numCols size grid */
-        seat_grid.push(seat_row);
-        table.appendChild(row);
+        SEAT_GRID.push(seat_row);
+        TABLE.appendChild(row);
     }
 }
 
