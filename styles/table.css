@@ -35,6 +35,8 @@
     text-align: center;
 
     transition: 1.05ms;
+
+    opacity: .5;
 }
 
 .cell:hover {
@@ -56,6 +58,7 @@
 
 .first-row, .first-col {
     background-color: lightgrey;
+    opacity: 1;
 }
 
 .first-row:hover, .first-col:hover {
@@ -73,4 +76,5 @@
 
 .taken {
     background-color: lightcoral;
+    opacity: 1;
 }
