@@ -1,32 +1,48 @@
+/* magnification factor of seating chart */
 let magnification = 1;
-/* table variable declared in seats.js */
+
+// + magnification button
 let maximize = document.querySelector('#maximize');
+// - magnification button
 let minimize = document.querySelector('#minimize');
-let zoomSpec = document.querySelector('#zoom-spec');
+// displays current magnification to user
+let zoom_spec = document.querySelector('#zoom-spec');
+
+let maximum_magnification = 1.75;
+let minimum_magnification = .25;
+let magnification_shift = .25;
 
 maximize.addEventListener('click', () => {
-    if (magnification + .25 >= 1.75) {
+    if (magnification + magnification_shift >= maximum_magnification) {
+        // if you reach max magnification, disable the button to prevent
+        //      further magnification
         maximize.disabled = true;
-        console.log('bruh')
-    } else if (magnification <= .25) {
+    } else if (magnification <= minimum_magnification) {
+        // you'll no longer be at the minimum magnification if you zoom in
         minimize.disabled = false;
     }
 
-    magnification += .25;
+    magnification += magnification_shift;
+    /* table variable declared in index.js */
     table.style.zoom = magnification;
 
-    zoomSpec.textContent = `${magnification}x`;
+    zoom_spec.textContent = `${magnification}x`;
 });
 
+// minimum magnification = .25
 minimize.addEventListener('click', () => {
-    if (magnification >= 1.75) {
+    if (magnification >= maximum_magnification) {
+        // you'll no longer be at the maximum magnification if you zoom out
         maximize.disabled = false;
-    } else if (magnification - .25 <= .25) {
+    } else if (magnification - magnification_shift <= minimum_magnification) {
+        // if you reach min magnification, disable the button to prevent
+        //      further zooming out
         minimize.disabled = true;
     }
 
-    magnification -= .25;
+    magnification -= magnification_shift;
+    /* table variable declared in index.js */
     table.style.zoom = magnification;
 
-    zoomSpec.textContent = `${magnification}x`;
+    zoom_spec.textContent = `${magnification}x`;
 });

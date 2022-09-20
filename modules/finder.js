@@ -1,13 +1,9 @@
-/* table var declared in seats.js */
+let row_letter = document.querySelector('#row-letter');
+let col_num = document.querySelector('#col-num');
+let search_btn = document.querySelector('#search-btn');
 
-let rowLetter = document.querySelector('#row-letter');
-let colNum = document.querySelector('#col-num');
-let searchBtn = document.querySelector('#search-btn');
-
-searchBtn.addEventListener('click', () => {
-    let id = `${rowLetter.value}-${colNum.value}`;
-    let curCell = document.getElementById(id);
-    curCell.focus();
-
-    console.log(curCell)
+search_btn.addEventListener('click', () => {
+    let cell_id = `${row_letter.value}-${col_num.value}`;
+    let cur_cell = document.getElementById(cell_id);
+    cur_cell.focus();
 });

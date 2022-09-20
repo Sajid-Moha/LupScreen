@@ -1,6 +1,26 @@
-/* These values update when changed in resize.js */
-let curRows = 10;
-let curCols = 10;
+/* Each position on seating grid will have a seat object,
+ *  grid is initialized with all empty seats
+ *  if seat is empty then name, email, & level will be ''
+ *  each seat in grid will be clickable which will then open a modal,
+ *      modal will allow student data to be altered/set.    
+*/
+class Seat {
+    constructor (name, email, level) {
+        this.name = name;
+        this.email = email;
+        this.level = level;
+    }
+}
+
+/* modal will have a 'clear seat' button to make clearing fields easy
+*  function is included in prototype rather than in the class above so that
+*       all instances of the class share the same function (saves space)
+*/
+Seat.prototype.Clear = function () {
+    this.name = '';
+    this.email = '';
+    this.level = '';
+}
 
 
 /* added + prefix to variables in this function because they were

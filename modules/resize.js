@@ -1,13 +1,19 @@
 /* input boxes with user-specified sizes */
-let numRows = document.querySelector('#rows');
-let numCols = document.querySelector('#cols');
+let num_rows = document.querySelector('#rows');
+let num_cols = document.querySelector('#cols');
 
 /* submit button */
-let submitSize = document.querySelector('#table-adjust');
+let submit_size = document.querySelector('#table-adjust');
 
-submitSize.addEventListener('click', () => {
+let min_rows = 1;
+let max_rows = 52;
+let min_cols = 1;
+let max_cols = 200;
+
+
+submit_size.addEventListener('click', () => {
     /* If given size exceeds the value limits we have then don't process resize */
-    if (numRows.value <= 0 || numRows.value > 52 || numCols.value <= 0 || numCols.value > 200) {
+    if (num_rows.value < min_rows || num_rows.value > max_rows || num_cols.value < min_cols || num_cols.value > max_cols) {
         return;
     }
 
@@ -18,16 +24,14 @@ submitSize.addEventListener('click', () => {
         return;
     }
 
-    /* delete all the seats that are currently in the grid */
-    let table = document.querySelector('.seat-grid');
-    while (table.firstChild) {
-        table.removeChild(table.firstChild);
+    while (TABLE.firstChild) {
+        TABLE.removeChild(TABLE.firstChild);
     }
 
     /* cur vals from students.js */
-    curRows = numRows.value;
-    curCols = numCols.value;
-    createTable(numRows.value, numCols.value);
+    CUR_ROWS = num_rows.value;
+    CUR_COLS = num_cols.value;
+    createTable(num_rows.value, num_cols.value);
 });
 
 /* Initialize table at 10x10 (arbitrarily chosen size) */
