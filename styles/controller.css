@@ -9,6 +9,13 @@
     margin-bottom: .5rem;
 }
 
+@media (max-width: 350px) {
+    .controller {
+        flex-direction: column;
+        gap: 3em;
+    }
+}
+
 
 /* JUMPER STYLING */
 /* want button to be inline with input fields until it gets too overcrowded */
