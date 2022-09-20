@@ -33,6 +33,10 @@ button:active {
     box-shadow: 0px 0px;
 }
 
+input {
+    border: 1px solid black;
+}
+
 .size-adjusters {
     /* centers input boxes and labels */
     text-align: center;
@@ -40,4 +44,19 @@ button:active {
 
 #table-adjust {
     margin-left: 3rem;
+}
+
+.size-inputs {
+    display: inline;
+}
+
+@media (max-width: 400px) {
+    .size-inputs {
+        display: block;
+    }
+
+    #table-adjust {
+        margin-left: 0rem;
+        margin-top: .5rem;
+    }
 }
