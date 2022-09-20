@@ -24,7 +24,7 @@ maximize.addEventListener('click', () => {
 
     magnification += magnification_shift;
     /* table variable declared in index.js */
-    table.style.zoom = magnification;
+    TABLE.style.zoom = magnification;
 
     zoom_spec.textContent = `${magnification}x`;
 });
@@ -42,7 +42,7 @@ minimize.addEventListener('click', () => {
 
     magnification -= magnification_shift;
     /* table variable declared in index.js */
-    table.style.zoom = magnification;
+    TABLE.style.zoom = magnification;
 
     zoom_spec.textContent = `${magnification}x`;
 });
