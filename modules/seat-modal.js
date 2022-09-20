@@ -26,7 +26,6 @@ function createModal(modal_title, row, column) {
     header.appendChild(close_btn); header.appendChild(title);
 
     let student = SEAT_GRID[row][column];
-    console.log(student);
     let body = createForm(student.name, student.email, student.level);
 
     let footer = document.createElement('div'); footer.classList.add('modal-footer');
