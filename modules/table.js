@@ -27,11 +27,13 @@ function createTable(numRows, numCols) {
 
         for (let j = 0; j < numCols; j++) {
             /* BACKEND GRID WORK: add an empty seat for each column */
-            seat_row.push(new Seat('', '', ''));
+            seat_row.push(new Seat('', '', 0));
 
-            let cell = CreateCell(`${LETTERS[i]}-${j + 1}`);
+            let cell_id = `${LETTERS[i]}-${j + 1}`;
+            let cell = CreateCell(cell_id);
             cell.addEventListener('click', (e) => {
-                let mod = createModal(`${LETTERS[i]}-${j + 1}`, i, j)
+                let mod = createModal(cell_id, i, j);
+                
                 let htmlbody = document.querySelector('body');
                 htmlbody.insertBefore(mod, document.querySelector('#first-child'));
                 let close_modal = document.querySelector('.close');
@@ -53,7 +55,12 @@ function createTable(numRows, numCols) {
                 let email_input = document.querySelector('#email');
                 email_input.addEventListener('input', () => {
                     UpdateSeat(i, j);
-                })
+                });
+
+                let grade_input = document.querySelector('#grade-field');
+                grade_input.addEventListener('input', () => {
+                    UpdateSeat(i, j);
+                });
             })
             row.appendChild(cell);
         }

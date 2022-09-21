@@ -6,22 +6,8 @@ function createModal(modal_title, row, column) {
     let close_btn = document.createElement('span'); close_btn.classList.add("close");
         close_btn.textContent = '\u00D7';
 
-    /* let left_arrow = document.createElement('i');
-        left_arrow.classList.add("fa-solid");
-        left_arrow.classList.add("fa-arrow-left");
-    let right_arrow = document.createElement('i');
-        right_arrow.classList.add("fa-solid");
-        right_arrow.classList.add("fa-arrow-right"); */
-
-
     let title = document.createElement('h2');
-        title.innerHTML = `
-        <i class="fa-solid fa-arrow-left arrow-nav" style="color: black;
-                                                margin-right: 2em;"></i>
-        ${modal_title}
-        <i class="fa-solid fa-arrow-right arrow-nav" style="color: black;
-                                                        margin-left: 2em;"></i>
-        `;
+        title.textContent = modal_title;
 
     header.appendChild(close_btn); header.appendChild(title);
 
@@ -68,27 +54,60 @@ function createForm(name, email, level) {
         input2.name = "email";
         input2.id = "email";
         input2.value = email;
+
+        let grade_level = document.createElement('label');
+        grade_level.htmlFor = 'grade-field';
+        grade_level.textContent = 'Grade Level:';
+
+        let grade_form = document.createElement('form');
+        grade_form.name = 'grade-field';
+        grade_form.id = 'grade-field';
+
+        let first = CreateGradeBubble('First', 'First');
+        // want all but first input field to have left space
+        first.classList.remove('left-space');
+        let second = CreateGradeBubble('Second', 'Second');
+        let third = CreateGradeBubble('Third', 'Third');
+        let fourth = CreateGradeBubble('Fourth', 'Fourth');
+
+        grade_form.appendChild(first);
+        grade_form.appendChild(second);
+        grade_form.appendChild(third);
+        grade_form.appendChild(fourth);
+
+        grade_form[level].checked = true;
+
+
     
         body.appendChild(label2);
         body.appendChild(document.createElement('br'));
         body.appendChild(input2);
         body.appendChild(document.createElement('br'));
         body.appendChild(document.createElement('br'));
+        body.appendChild(grade_level);
+        body.appendChild(grade_form);
+        body.appendChild(document.createElement('br'));
     
     body.appendChild(document.createElement('br'));
     return body;
 }
 
-/* 
-              <label for="grade-field">Grade:</label>
-              <form name="grade-field" id="grade-field">
-                <input type="radio" value="1" id="first" name="grade" checked>
-                <label for="first">First</label>
-                <input class="left-space" type="radio" value="2" id="second" name="grade">
-                <label for="second">Second:</label>
-                <input class="left-space" type="radio" value="3" id="third" name="grade">
-                <label for="third">Third</label>
-                <input class="left-space" type="radio" value="4" id="fourth" name="grade">
-                <label for="fourth">Fourth</label>
-              </form>
-*/
+function CreateGradeBubble(level, value) {
+    let input_field = document.createElement('input');
+    input_field.type = 'radio';
+    input_field.value = value;
+    input_field.id = level;
+    input_field.name = 'grade';
+    input_field.classList.add('left-space');
+
+    let input_label = document.createElement('label');
+    input_label.htmlFor = level;
+    input_label.textContent = level;
+
+    let grade_level_container = document.createElement('div');
+    grade_level_container.style = 'display: inline-block; ';
+    grade_level_container.appendChild(input_field);
+    grade_level_container.appendChild(input_label);
+
+    return grade_level_container;
+}

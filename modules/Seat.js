@@ -19,7 +19,7 @@ class Seat {
 Seat.prototype.Clear = function () {
     this.name = '';
     this.email = '';
-    this.level = '';
+    this.level = 0;
 }
 
 
@@ -90,6 +90,13 @@ function UpdateSeat(row, col) {
             ${email}
             `;
         }
+    }
+
+    let grade_level = document.querySelector('#grade-field');
+    for (let i = 0; i < grade_level.length; i++) {
+        if (grade_level[i].checked) {
+            SEAT_GRID[row][col].level = i;
+        } 
     }
 }
 
