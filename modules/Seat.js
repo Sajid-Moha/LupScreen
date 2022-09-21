@@ -57,6 +57,10 @@ function UpdateSeat(row, col) {
         cur_cell.textContent = `${LETTERS[row]}-${col + 1}`;
     }
     else if (name_input.value === '') {
+        if (!email_input.checkValidity()) {
+            return;
+        }
+
         cur_cell.classList.add('taken');
         // if email is too long, we have to trim it
         let email = EmailCondenser(SEAT_GRID[row][col].email);
@@ -75,12 +79,17 @@ function UpdateSeat(row, col) {
         cur_cell.classList.add('taken');
         let name = NameCondenser(SEAT_GRID[row][col].name);
         let email = EmailCondenser(SEAT_GRID[row][col].email);
-
-        cur_cell.innerHTML = `
-        ${name}
-        <br>
-        ${email}
-        `;
+        if (!email_input.checkValidity()) {
+            cur_cell.innerHTML = `
+            ${name}
+            `;  
+        } else {
+            cur_cell.innerHTML = `
+            ${name}
+            <br>
+            ${email}
+            `;
+        }
     }
 }
 

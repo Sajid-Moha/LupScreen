@@ -63,7 +63,8 @@ function createForm(name, email, level) {
         label2.textContent = "Email:";
 
         let input2 = document.createElement('input');
-        input2.type = 'text';
+        input2.type = 'email';
+        input2.pattern = '.+\@.+\..+';
         input2.name = "email";
         input2.id = "email";
         input2.value = email;

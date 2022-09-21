@@ -17,6 +17,17 @@ header {
     gap: 1em;
 }
 
+@media (max-height: 550px) {
+    .branding {
+        display: none;
+    }
+
+    header {
+        height: 3vh;
+        margin-bottom: 1vh;
+    }
+}
+
 .logo {
     height: 7vh;
     aspect-ratio: 1;
