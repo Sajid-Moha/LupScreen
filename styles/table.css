@@ -44,7 +44,7 @@
     cursor: pointer;
 }
 
-.cell:hover {
+.cell:focus {
     border: 2px solid orange;
 }
 
