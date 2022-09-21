@@ -33,9 +33,9 @@
         <form class="size-adjusters" onsubmit="return false">
             <div class="size-inputs">
                 <label for="rows">Rows: </label>
-                <input id="rows" name="rows" type="number" min="1" max="52" required>
+                <input id="rows" name="rows" type="number" min="1" max="52" required placeholder="10">
                 <label for="rows">Columns: </label>
-                <input id="cols" name="cols" type="number" min="1" max="200" required>
+                <input id="cols" name="cols" type="number" min="1" max="200" required placeholder="10">
             </div>
             <button id="table-adjust" type="submit">Resize</button>
         </form>
@@ -48,8 +48,8 @@
         <div class="controller">
             <form id="jumper" onsubmit="return false">
                 <div class="jumper-inputs">
-                    <input id="row-letter" type="text" pattern="[A-Za-z]{1}" minlength="1" maxlength="1">
-                    <input id="col-num" type="number" min="1" max="200" maxlength="3">
+                    <input id="row-letter" type="text" pattern="[A-Za-z]{1}" minlength="1" maxlength="1" placeholder="A">
+                    <input id="col-num" type="number" min="1" max="200" maxlength="3" placeholder="1">
                 </div>
                 <button id="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
